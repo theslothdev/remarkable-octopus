@@ -1,0 +1,16 @@
+<div class="site-branding">
+  {{ if .Site.Params.header.logo_img }}
+  <p class="site-logo">
+    <a href='{{ "/" | relURL }}'><img src="{{ .Site.Params.header.logo_img | relURL }}"
+        alt="Logo" /></a>
+  </p>
+  {{ end }}
+  {{ if eq .Params.layout "home" }}
+  <h1 class="site-title"><a href='{{ "/" | relURL }}'>{{ .Site.Params.header.title }}</a></h1>
+  {{ else }}
+  <p class="site-title"><a href='{{ "/" | relURL }}'>{{ .Site.Params.header.title }}</a></p>
+  {{ end }}
+  {{ if .Site.Params.header.tagline }}
+  <p class="site-description">{{ .Site.Params.header.tagline }}</p>
+  {{ end }}
+</div><!-- .site-branding -->

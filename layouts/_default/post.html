@@ -1,0 +1,60 @@
+{{ define "content" }}
+
+  {{ if eq .Params.hide_header true }}
+    {{ partial "header_alt.html" . }}
+  {{ else }}
+    {{ $include_dict := dict "Site" .Site "page" . "img_path" .Params.content_img_path }}
+    {{ partial "header.html" $include_dict }}
+  {{ end }}
+
+  <div id="content" class="site-content">
+    <main id="main" class="site-main inner">
+
+      <article class="post post-full">
+        <header class="post-header">
+          <h1 class="post-title">{{ .Params.title }}</h1>
+          <div class="post-meta">
+            <time class="published"
+              datetime="{{ .Date | dateFormat "2006-01-02 15:04" }}">{{ .Date | dateFormat "Monday, January 2, 2006" }}</time>
+          </div>
+        </header><!-- .post-header -->
+        {{ if .Params.subtitle }}
+        <div class="post-subtitle">
+          {{ .Params.subtitle | safeHTML }}
+        </div><!-- .post-subtitle -->
+        {{ end }}
+        <div class="post-content">
+          {{ .Content | safeHTML }}
+        </div><!-- .post-content -->
+      </article><!-- .post -->
+
+      <!-- Next/previous post navigation TBD -->
+      <!--
+      <nav class="post-navigation">
+        <h2 class="post-nav-title">Read Next</h2>
+        <article class="post">
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            <div class="post-meta">
+              Published on <time class="published" datetime="">Previous post date</time>
+            </div>
+          </header>
+        </article>
+        <article class="post">
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            <div class="post-meta">
+              Published on <time class="published" datetime="">Next post date</time>
+            </div>
+          </header>
+        </article>
+      </nav>
+      -->
+
+    </main><!-- .site-main -->
+
+    {{ partial "footer.html" . }}
+
+  </div><!-- .site-content -->
+
+{{ end }}

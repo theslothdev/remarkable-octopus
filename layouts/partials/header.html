@@ -1,0 +1,15 @@
+<header id="masthead" class="site-header">
+  {{ if .img_path }}
+  <div id="header-bg" class="site-header-bg" style="background-image:url('{{ .img_path | relURL }}')"></div>
+  {{ else if .Site.Params.header.bg_img }}
+  <div id="header-bg" class="site-header-bg" style="background-image:url('{{ .Site.Params.header.bg_img | relURL }}')"></div>
+  {{ end }}
+  <div class="site-header-scroll">
+    <div class="site-header-inside">
+      <div class="site-header-vertical">
+        {{ partial "branding.html" . }}
+        {{ partial "navigation.html" . }}
+      </div><!-- .site-header-vertical -->
+    </div><!-- .site-header-inside -->
+  </div><!-- .site-header-scroll -->
+</header><!-- .site-header -->

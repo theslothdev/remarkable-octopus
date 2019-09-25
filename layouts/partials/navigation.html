@@ -1,0 +1,20 @@
+{{ if and .Site.Menus.main .Site.Params.header.has_nav }}
+<nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+  <div class="site-nav-wrap">
+    <div class="site-nav-inside">
+      <ul class="menu">
+        {{ range $item := .Site.Menus.main }}
+        <li class="menu-item {{ if eq $.URL $item.URL }} current-menu-item{{ end }}">
+          <a href="{{ $item.URL | relURL }}">{{ $item.Name }}</a>
+        </li>
+        {{ end }}
+      </ul><!-- .menu -->
+      {{ if .Site.Params.header.has_social }}
+      {{ partial "social.html" . }}
+      {{ end }}
+    </div><!-- .site-nav-inside -->
+  </div><!-- .site-nav-wrap -->
+</nav><!-- .site-navigation -->
+<button id="menu-toggle" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
+    aria-hidden="true"></span></button>
+{{ end }}

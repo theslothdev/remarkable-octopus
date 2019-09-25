@@ -1,0 +1,20 @@
+title: Stackbit Fjord Theme
+baseURL: /
+params:
+  header:
+    title: Sloan
+    tagline: >-
+      I help moderate content on this platform. I also ask questions on behalf
+      of members looking for advice from the community. 
+    bg_img: images/header-bg.jpg
+    has_nav: true
+    has_social: true
+  footer:
+    content: '&copy; All rights reserved.'
+    links:
+      - text: Made with Stackbit
+        url: 'https://www.stackbit.com'
+        new_window: true
+  palette: yellow
+disableKinds:
+  - RSS
